@@ -1,0 +1,571 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0,minimal-ui" charset="gb2312">
+    <title>投顾注册页面</title>
+    <!--<link rel="stylesheet" type="text/css" href="/advisor/Template/css/tg_register.css">-->
+
+    <!--头尾-->
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            padding: 0 0;
+            background-color: #fffbd8;
+            -webkit-user-select: none;
+            line-height ： 1.5;
+            font-family: "微软雅黑";
+        }
+
+        body, td, input, textarea, option, select, button {
+            font-family: Arial, Helvetica, sans-serif, "microsoft yahei";
+            font-size: 1.1em;
+            -webkit-text-size-adjust ： none;
+            font-size-adjust: none;
+        }
+
+        div, p, a, b, em, input, textarea, button, select, form, label, span, td, tr, li, nav, body, ul, i {
+            padding: 0;
+            margin: 0;
+            word-break: break-all;
+            word-wrap: break-word;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        dl, ul {
+            list-style: none;
+        }
+
+        .nav {
+            position: relative;
+            height: 48px;
+            font-size: 1.1em;
+            font-weight: 700px;
+            line-height: 48px;
+            color: #fff;
+            text-align: center;
+            background-color: #212121;
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            -o-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        input {
+            -webkit-touch-callout: none;
+        }
+
+        .tg_regi_body {
+            padding: 1em;
+        }
+
+        input[type=text], input[type=url],
+        input[type=tel],
+        input[type=search],
+        input[type=email],
+        input[type=password],
+        input[type=date] {
+            resize: none;
+            -webkit-appearance: none;
+        }
+
+        .input_text, .select {
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #cbcbcb;
+            border-radius: 0;
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            -o-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .input_text:focus {
+            border-color: #3fa4f2;
+        }
+
+        .pull-left {
+            float: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        a.text-blue {
+            color: #029ee9;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="nav">
+    <strong>注册投资顾问</strong>
+</nav>
+<div class="tg_regi_body">
+<div class="tg_regi_main">
+<div class="tg_regi_left">
+
+<div id="registerSuccess_25" class="is_success" style="display:none"></div>
+<div id="registerFailure_25" class="is_failure" style="display:none"></div>
+<div id="registerContainer_25">
+<form id="frmRegister_25" method="post" enctype="multipart/form-data"
+      action="/sitefiles/services/cms/gb2312/action.aspx?publishmentSystemID=125&styleID=25&type=register"
+      target="loadRegister_25">
+<script type="text/javascript" charset="utf-8"
+        src="/advisor/SiteFiles/bairong/scripts/independent/validate.js"></script>
+<style type="text/css">
+    .is_text {
+        border: #cfd8e1 1px solid;
+        background-color: #fff;
+        width: 260px;
+        height: 18px;
+        line-height: 18px;
+        vertical-align: middle
+    }
+
+    .is_upload {
+        border: #cfd8e1 1px solid;
+        width: 328px;
+    }
+
+    .is_textarea {
+        border: #cfd8e1 1px solid;
+        background-color: #fff;
+        width: 320px;
+        height: 90px
+    }
+
+    .is_btn {
+        line-height: 16px
+    }
+
+    .is_success {
+        margin: 0 auto;
+        font: 14px Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-family: "微软雅黑";
+        color: #005D89;
+        padding: 100px 90px 10px;
+        margin: -20px auto 0px 0px;
+        font-size: 18px;
+        width: 500px;
+        height: 780px;
+        background: url(/sitefiles/services/cms/images/register2.jpg) no-repeat left center;
+        text-align: center;
+        line-height: 3.5em;
+        font-weight: bold;
+    }
+
+    .is_failure {
+        margin: 0 auto;
+        font: 14px Arial, Helvetica, sans-serif;
+        color: #CC0000 !important;
+        padding: 10px 10px 10px 45px;
+        width: 90%;
+        text-align: left;
+        line-height: 160%;
+        font-weight: bold;
+    }
+
+    tr {
+        line-height: 2.8em;
+        font-size: 12px;
+    }
+
+    .input_text {
+        width: 100%
+    }</style>
+<script type="text/javascript">function stlRegisterCallback_25(jsonString) {
+    var obj = eval('(' + jsonString + ')');
+    if (obj) {
+        document.getElementById('registerSuccess_25').style.display = 'none';
+        document.getElementById('registerFailure_25').style.display = 'none';
+        if (obj.isSuccess == 'false') {
+            document.getElementById('registerFailure_25').style.display = '';
+            document.getElementById('registerFailure_25').innerHTML = obj.message;
+        } else {
+            document.getElementById('registerSuccess_25').style.display = '';
+            document.getElementById('registerSuccess_25').innerHTML = obj.message;
+            document.getElementById('registerContainer_25').style.display = 'none';
+        }
+    }
+}
+
+
+function register() {
+    if (!document.getElementById("Check_tongyi").checked) {
+        document.getElementById("error_check").style.display = "block";
+    }
+    else {
+        document.getElementById("error_check").style.display = "none";
+    }
+
+}
+
+function next1() {
+    document.getElementById("first").style.display = "none";
+    document.getElementById("iframes").style.display = "block";
+}
+
+function locking() {
+    document.getElementById('ly').style.display = "block";
+    document.getElementById('ly').style.width = document.body.clientWidth;
+    document.getElementById('ly').style.height = document.body.clientHeight;
+    document.getElementById('Layer').style.display = 'block';
+}
+
+function Lock_CheckForm(theForm) {
+    document.getElementById('ly').style.display = 'none';
+    document.getElementById('Layer').style.display = 'none';
+    return false;
+}
+
+
+function checkUserName() {
+    var obj = document.getElementById("UserName").value;
+    var reg = /.*[\u4e00-\u9fa5]+.*$/;
+    if (obj !== "") {
+        if (reg.test(obj)) {
+            document.getElementById("usernameorror").innerHTML = "用户名不能是中文";
+        }
+        else {
+            document.getElementById("usernameorror").innerHTML = "";
+        }
+    }
+
+}
+
+
+function showDetail() {
+    document.getElementById("imginf").style.display = "block";
+}
+
+function closeimg() {
+    document.getElementById("imginf").style.display = "none";
+}
+
+function check(str) {
+    var temp = ""
+    for (var i = 0; i < str.length; i++)
+        if (str.charCodeAt(i) > 0 && str.charCodeAt(i) < 255)
+            temp += str.charAt(i)
+    return temp
+}</script>
+<table cellSpacing="2" cellPadding="2" border="0" width="100%">
+    <!--<tr height="15">-->
+    <!--<td width="70" style="color:#000000;  font-size:14px;" colspan="2">您好，请填写您的真实信息(标<font style="color:#E60012;font-size:14px;"> * </font>的为必填项)：-->
+    <!--<a href="/advisor/jiaru.html" style="color:#E60012; font-weight:bold; font-size:15px;">（了解加入流程）</a></td>-->
+    <!--</tr>-->
+
+    <tr height="15">
+        <!--<td width="70" style="color:#DF6400; padding:20px 0px;  font-size:24px;" colspan="2">基本信息：</td>-->
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>用户名:</nobr></td>-->
+        <td><input id="UserName" name="UserName" onblur="checkUserName();" type="text" class="input_text"
+                   placeholder="* 请输入用户名" value="" style="width:100%;ime-mode:disabled;" onpaste="return false"
+                   ondragenter="return false" onkeyup="this.value=check(this.value)" isValidate="true" displayName="用户名"
+                   isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""/>&nbsp;<span
+                id="UserName_msg" style="color:red;display:none;">*</span>
+            <script>event_observe('UserName', 'blur', checkAttributeValue);</script>
+            &nbsp;<span style="color: #AAA;"></span>
+            <span id='usernameorror' style='color: red;'></span>
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>密码:</nobr></td>-->
+        <td><input id="Password" maxlength="16" name="Password" type="password" class="input_text"
+                   placeholder="* 请设置登录密码" value="" style="width:100%;" isValidate="true" displayName="密码"
+                   isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""/>&nbsp;<span
+                id="Password_msg" style="color:red;display:none;">*</span>
+            <script>event_observe('Password', 'blur', checkAttributeValue);</script>
+            &nbsp;<span style="color: #AAA;"></span></td>
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>确认密码:</nobr></td>-->
+        <td><input id="ComfirmPassword" maxlength="16" name="ComfirmPassword" type="password" class="input_text"
+                   placeholder="* 请输入确认密码" value="" style="width:100%;" isValidate="true" displayName="确认密码"
+                   isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""/>&nbsp;<span
+                id="ComfirmPassword_msg" style="color:red;display:none;">*</span>
+            <script>event_observe('ComfirmPassword', 'blur', checkAttributeValue);</script>
+            &nbsp;</td>
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>您的姓名:</nobr></td>-->
+        <td><input name="name" id="name" type="text" class="input_text" value="" placeholder="* 请输入您的真实姓名"
+                   style="width:100%;" isValidate="true" displayName="真实姓名" isRequire="true" minNum="0" maxNum="0"
+                   validateType="None" regExp="" errorMessage="请输入真实姓名，便于我们识别"/>&nbsp;<span id="name_msg"
+                                                                                            style="color:red;display:none;">*</span>
+            <script>event_observe('name', 'blur', checkAttributeValue);</script>
+            &nbsp;</td>
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>您的称谓:</nobr></td>-->
+        <td style="height:72px">
+            <nobr>*&nbsp您的称谓:&nbsp;&nbsp;</nobr>
+            <span class="input_radio"><input id="Sex_0" type="radio" name="Sex" value="先生" checked="checked"
+                                             width="100"/><label for="Sex_0">先生</label></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="input_radio"><input id="Sex_1" type="radio" name="Sex" value="女士" width="100"/><label
+                    for="Sex_1">女士</label></span>
+        </td>
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>身份证号:</nobr></td>-->
+        <td><input id="IdNumCard" name="IdNumCard" type="text" placeholder="* 请输入18位身份证号码" class="input_text" value=""
+                   style="width:100%;" isValidate="true" displayName="身份证号" isRequire="true" minNum="0" maxNum="0"
+                   validateType="IdCard" regExp="" errorMessage=""/>&nbsp;<span id="IdNumCard_msg"
+                                                                                style="color:red;display:none;">*</span>
+            <script>event_observe('IdNumCard', 'blur', checkAttributeValue);</script>
+            <span style="color: #AAA;"></span></td>
+    </tr>
+    <!--<tr height="15">-->
+    <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>银行卡号:</nobr></td>-->
+    <!--<td><input id="BalnkCardNum" name="BalnkCardNum" type="text" placeholder="* 请输入您的银行卡号 确保薪金可以到账" class="input_text" value="" style="width:100%;" isValidate="true" displayName="银行卡号" isRequire="true" minNum="0" maxNum="0" validateType="Integer" regExp="" errorMessage=""/>&nbsp;<span id="BalnkCardNum_msg" style="color:red;display:none;">*</span>
+<script>event_observe('BalnkCardNum', 'blur', checkAttributeValue);</script>
+<span style="color: #AAA;"></span></td>-->
+    <!--</tr>-->
+
+    <!--<tr height="15">-->
+    <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>开户行:</nobr></td>-->
+    <!--<td><input id="OpenBlankName" name="OpenBlankName" type="text" class="input_text" placeholder="* 请输入银行卡开户行" value="" style="width:100%;" isValidate="true" displayName="开户行名" isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""/>&nbsp;<span id="OpenBlankName_msg" style="color:red;display:none;">*</span>
+<script>event_observe('OpenBlankName', 'blur', checkAttributeValue);</script>
+<span style="color: #AAA;"></span></td>-->
+    <!--</tr>-->
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>手机号码:</nobr></td>-->
+        <td><input id="Phone" name="Phone" placeholder="* 请输入您的手机号码" type="text" class="input_text" value=""
+                   style="width:100%;" isValidate="true" displayName="手机号码" isRequire="true" minNum="0" maxNum="0"
+                   validateType="Mobile" regExp="" errorMessage=""/>&nbsp;<span id="Phone_msg"
+                                                                                style="color:red;display:none;">*</span>
+            <script>event_observe('Phone', 'blur', checkAttributeValue);</script>
+            &nbsp;</td>
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70"><span style="color: red;">*</span>&nbsp;<nobr>邮箱地址:</nobr></td>-->
+        <td><input id="Email" name="Email" type="text" placeholder="* 请输入您的常用邮箱" class="input_text" value=""
+                   style="width:100%;" isValidate="true" displayName="Email" isRequire="true" minNum="0" maxNum="0"
+                   validateType="Email" regExp="" errorMessage=""/>&nbsp;<span id="Email_msg"
+                                                                               style="color:red;display:none;">*</span>
+            <script>event_observe('Email', 'blur', checkAttributeValue);</script>
+            &nbsp;</td>
+    </tr>
+
+    <tr height="15">
+        <!--<td width="70">&nbsp;&nbsp;<nobr>推荐人:</nobr></td>-->
+        <td><input id="Referrer" value="" name="Referrer" type="text" placeholder="推荐人在展恒的服务代码，没有可不填" class="input_text"
+                   style="width:100%;" isValidate="true" displayName="推荐人" isRequire="false" minNum="0" maxNum="0"
+                   validateType="None" regExp="" errorMessage=""/>&nbsp;<span id="Referrer_msg"
+                                                                              style="color:red;display:none;">*</span>
+            <script>event_observe('Referrer', 'blur', checkAttributeValue);</script>
+<span style="color: #AAA;">
+</span></td>
+    </tr>
+
+    <!--<tr height="15">-->
+    <!--<td width="70" style="color:#DF6400; padding:20px 0px;  font-size:24px;" colspan="2">专业信息：</td>-->
+    <!--</tr>-->
+    <!--<tr height="25">-->
+    <!--<td width="70"><nobr>最高学历:</nobr></td>-->
+    <!--<td><select id="max_uni" name="max_uni" class="select" style="width:100%;" isValidate="true" displayName="最高学历" isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""><option value="1" selected="">请选择</option><option value="2">高中及以下</option><option value="3">大专</option><option value="4">大学本科</option><option value="5">研究生</option><option value="6">博士</option></select>&nbsp;<span id="max_uni_msg" style="color:red;display:none;">*</span>
+<script>event_observe('max_uni', 'blur', checkAttributeValue);</script>
+</td></tr>-->
+
+    <!--<tr height="25">-->
+    <!--<td width="70"><nobr>最高学历专业:</nobr></td>-->
+    <!--<td><select id="max_uni_zy" name="max_uni_zy" class="select" style="width:100%;" isValidate="true" displayName="最高学历专业" isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""><option value="1" selected="">请选择</option><option value="2">经济金融类</option><option value="3">文史类</option><option value="4">管理类</option><option value="5">理工类</option><option value="6">计算机类</option><option value="7">其他</option></select>&nbsp;<span id="max_uni_zy_msg" style="color:red;display:none;">*</span>
+<script>event_observe('max_uni_zy', 'blur', checkAttributeValue);</script>
+</td></tr>-->
+
+    <!--<tr height="25">-->
+    <!--<td width="70"><nobr>目前工作地点:</nobr></td>-->
+    <!--<td><select id="wordPlace" name="wordPlace" class="select" style="width:100%;" isValidate="true" displayName="目前工作地点" isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""><option value="1" selected="">请选择</option><option value="2">北京</option><option value="3">上海</option><option value="4">天津</option><option value="5">重庆</option><option value="6">河北</option><option value="7">河南</option><option value="8">云南</option><option value="9">辽宁</option><option value="10">黑龙江</option><option value="11">湖南</option><option value="12">安徽</option><option value="13">山东</option><option value="14">新疆维吾尔</option><option value="15">江苏</option><option value="16">浙江</option><option value="17">江西</option><option value="18">湖北</option><option value="19">广西壮族</option><option value="20">甘肃</option><option value="21">山西</option><option value="22">内蒙古</option><option value="23">陕西</option><option value="24">吉林</option><option value="25">福建</option><option value="26">贵州</option><option value="27">广东</option><option value="28">青海</option><option value="29">西藏</option><option value="30">四川</option><option value="31">宁夏回族</option><option value="32">海南</option><option value="33">台湾</option><option value="34">香港特别行政区</option><option value="35">澳门特别行政区</option></select>&nbsp;<span id="wordPlace_msg" style="color:red;display:none;">*</span>
+<script>event_observe('wordPlace', 'blur', checkAttributeValue);</script>
+</td></tr>-->
+
+    <!--<tr height="25">-->
+    <!--<td width="70"><nobr>目前工作类型:</nobr></td>-->
+    <!--<td><select id="wordtype" name="wordtype" class="select" style="width:100%;" isValidate="true" displayName="目前工作类型" isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""><option value="1" selected="">请选择</option><option value="2">金融业</option><option value="3">保险业</option><option value="4">房产业</option><option value="5">教育业</option><option value="6">IT业</option><option value="7">其他</option></select>&nbsp;<span id="wordtype_msg" style="color:red;display:none;">*</span>
+<script>event_observe('wordtype', 'blur', checkAttributeValue);</script>
+</td></tr>-->
+
+    <!--<tr height="25">-->
+    <!--<td width="70"><nobr>有无从业资格证:</nobr></td>-->
+    <!--<td><select id="IScard" name="IScard" class="select" style="width:100%;" isValidate="true" displayName="有无从业资格证" isRequire="true" minNum="0" maxNum="0" validateType="None" regExp="" errorMessage=""><option value="1" selected="">请选择</option><option value="2">证券从业资格证</option><option value="3">保险从业资格证</option><option value="4">银行从业资格证</option><option value="5">会计从业资格证</option><option value="6">CFP</option><option value="7">CFA</option><option value="8">其他</option><option value="9">无</option></select>&nbsp;<span id="IScard_msg" style="color:red;display:none;">*</span>
+<script>event_observe('IScard', 'blur', checkAttributeValue);</script>
+</td></tr>-->
+
+    <tr height="15">
+        <td colspan="2"><input id="ISAgree_0" type="checkbox" name="ISAgree" value="我已阅读并同意《展恒基金投资顾问协议须知》"
+                               checked="checked"/><label for="ISAgree_0"><a onclick="locking();" href="#">我已阅读并同意《展恒基金投资顾问协议须知》</a></label>
+        </td>
+    </tr>
+
+    <tr height="15">
+        <!--<td><span>*</span>&nbsp;验证码:</td>-->
+        <td><input name="validateCode" style="width:50%;" placeholder="验证码" type="text" class="input_text pull-left"
+                   id="validateCode" value="" isValidate="true" displayName="验证码" isRequire="true" minNum="4" maxNum="4"
+                   validateType="None" regExp="" errorMessage=""/>&nbsp;<img border="0" align="absmiddle"
+                                                                             src="/sitefiles/services/platform/validateCode.aspx?cookieName=SITESERVER.p125.s25&isCrossDomain=False&_r=470"
+                                                                             onclick="this.src='/sitefiles/services/platform/validateCode.aspx?cookieName=SITESERVER.p125.s25&isCrossDomain=False&_r=470?id='+Math.random()"
+                                                                             style="cursor:pointer;height:40px;"/>&nbsp;<span
+                id="validateCode_msg" style="color:red;display:none;">*</span>
+            <script>event_observe('validateCode', 'blur', checkAttributeValue);</script>
+        </td>
+    </tr>
+
+    <!--<tr height="35" style="line-height:1.2em;">
+         <td  colspan="4">请在1个工作日内把您的身份证正反面、银行卡正反面照片发送到邮箱：advisor@myfp.cn。我们会在1个工作日内进行实名认证并与您联系，谢谢！&nbsp;&nbsp;<a href="javascript:void();" onclick="showDetail()" style="color:red;">参照样板</a>
+
+         </td>
+    </tr>
+    -->
+    <tr height="15" style="line-height:10em;">
+        <!--<td></td> -->
+        <td align="center" width="550px"><a id="certificate" href="#" onclick="javascript:register()"><input
+                onclick="if (checkFormValueById('frmRegister_25')){document.getElementById('frmRegister_25').submit();document.getElementById('certificate').href='http://www.myfund.com/advisor/success_reg.html';}"
+                type="button" class="is_btn" value=""
+                style="border:none;width:131px; height:42px;background: url(/advisor/Template/images/register_img/regi_post.jpg) no-repeat"/></a>
+            &nbsp;&nbsp;<input type="reset" class="is_btn" value=""
+                               style="border:none;width:103px; height:42px;background: url(/advisor/Template/images/register_img/regi_clear.jpg) no-repeat"/>
+
+        </td>
+    </tr>
+</table>
+</table>
+
+<div style="display: none; position: relative; left: -170px; top: -290px;width:846px; height:210px;" id="imginf">
+    <img src="/advisor/Template/images/shenfen.gif"/>
+    <span id="closeimg" onclick="closeimg()"
+          style="cursor:pointer; position:relative; right:-819px; top:-208px; font-size:12px; color:#FFFFFF; padding:2px; background:#999999">关闭</span>
+</div>
+
+<div id="ly"
+     style="position:absolute;top:0;left:0;width:100%;height:1425px;background:#777;opacity:0.5;filter:alpha(opacity=50);display:none;z-index:100002;"></div>
+<div style="width:1000px; margin:0 auto;" id="div_show">
+    <div id="Layer"
+         style=" z-index: 100003; margin-left:60px; width: 800px; height: 564px; background-color: rgb(255, 255, 255); display: none; float: left;position:absolute; top:60px;"
+         valign="center">
+        <p><a href="#" onclick="Lock_CheckForm(this);" style="height:10px;position:absolute;right:2px;top:2px;"><img
+                src="/myfpsite/Template/images/btnclose.png"></a></p>
+
+        <div class="mainyuyue" style="margin:20px 40px; height:520px; overflow:scroll;">
+
+            <h3 style="text-align:center;font-size:20px; ">合作协议</h3>
+
+            <p style="margin-left:25px;line-height:2.5em;">本着平等互利、共同发展的原则，展恒理财顾问有限公司和独立投资顾问就客户开发的有关事项达成如下协议，共同遵照执行。</p>
+
+            <p style="margin-left:25px;line-height:2.5em;">
+                乙方仅是甲方在市场开发和客户交易通道方面的合作方，与甲方的关系是居间合作的权利义务关系，其以自己的名义从事居间活动。乙方既不是甲方正式员工，也不是临聘员工，与甲方不存在任何行政隶属或劳动雇佣关系。</p>
+
+            <p style="line-height:2.5em;">一、服务范围</p>
+
+            <p style="margin-left:25px;line-height:2.5em;">1.1乙方向甲方提供如下服务：</p>
+
+            <p style="margin-left:25px;line-height:2.5em;">乙方可推荐其客户通过甲方处购买金融理财产品，乙方按照双方约定向甲方收取居间报酬。</p>
+
+            <p style="line-height:2.5em;">二、甲方的权利和义务</p>
+            　　 <p style="margin-left:25px;line-height:2.5em;">
+            2.1甲方有权对乙方的居间服务活动进行监督，并有权对其违反或可能违反有关法律、法规规定的行为进行提示，并责令其改正。</p>
+            　　 <p style="margin-left:25px;line-height:2.5em;">2.2有以下情况的，甲方可以随时终止合作：</p>
+            　　 <p style="margin-left:25px;line-height:2.5em;">(1) 乙方有违法违纪或重大违约行为发生；</p>
+            　　 <p style="margin-left:25px;line-height:2.5em;">(2) 乙方开展业务与相关监督管理部门的规定不符。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">2.3甲方按照约定向乙方支付居间报酬，并划至乙方指定账户，乙方指定账户情况如下：</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">开户行： </p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">户名： </p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">账号：</p>
+            　　 <p style="margin-left:25px;line-height:2.5em;">2.4甲方同意协调内部各部门对乙方销售居间活动提供必要的服务和支持。</p>
+
+            <p style="line-height:2.5em;">三、乙方的权利和义务：</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">
+            3.1乙方有权向客户推介甲方代理的基金产品等金融理财产品到甲方指定的合作渠道购买，并按照双方约定向甲方收取居间报酬。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">3.2 乙方有权根据自愿原则，配合甲方组织的营销活动，如产品说明会。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">3.3乙方可合理利用、使用和宣传甲方为客户提供的产品资讯。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">3.4由乙方推荐给甲方的客户应当按照甲方的相关规定（包括业务时间、场所和流程等）办理。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">3.5乙方有义务向投资者揭示理财投资的风险，不得向客户做理财投资收益的任何保证或承诺。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">
+            3.6除相关法律、法规要求必须由甲方亲自办理的业务以外，甲方可根据需要，书面授权乙方承担部分客户、尤其是异地远距离客户的服务工作。</p>
+            　　　
+            　　　<p style="margin-left:25px;line-height:2.5em;">
+            3.7对于乙方与客户之间的纠纷、争议、损失、侵权、违约责任等，均由乙方与客户自行承担。甲方不介入乙方与客户的纠纷、争议等，也不对客户的任何损失负责(甲方交易系统事故除外)。</p>
+
+            <p style="line-height:2.5em;">四、乙方必须严格遵守国家法律、法规和行业规定，以合法的方式提供居间服务,在与甲方的居间合作中，乙方须遵守下列禁止性规定：</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.1不得代替客户进行证券交易；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.2不得向客户做出保本、保收益或共担风险的承诺；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.3不得与客户约定利益分成；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.4不得泄露甲方的商业秘密；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.5不得以甲方员工名义从事任何证券业务；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.6不得以甲方名义对外签订任何合同/协议；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.7甲方明文禁止的其他行为；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.8法律明文禁止的其他行为；</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">4.9乙方因违反上述规定而引发的与理财投资人之间的经济纠纷或法律纠纷，应由乙方自行承担，甲方不承担任何责任；</p>
+            　　　 <p style="margin-left:25px;line-height:2.5em;">
+            如乙方出现以上违规行为，视情节严重与否给予解约处理，如果对北京展恒理财顾问有限公司或第三人造成损害，由乙方承担全部责任。</p>
+
+            <p style="line-height:2.5em;">五、其他约定</p>
+
+            <p style="margin-left:25px;line-height:2.5em;">
+                5.1未经乙方允许，甲方绝不直接接触乙方客户及对其开展营销业务。甲方将根据自身专业优势建立一套完整的客户后续协助服务体系，给客户更好的体验。甲方在系统网站（www.myfund.com）将为乙方分配一个系统账户，乙方可以清楚看到乙方分配系统账户中客户交易情况，便于后续佣金的计算。</p>
+
+            <p style="line-height:2.5em;">六、乙方的居间报酬</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">6.1甲方按照乙方所开发的客户给公司带来的收入净得，作为计提居间服务的核算依据。乙方居间报酬包含内容：</p>
+            　　　 <p style="margin-left:25px;line-height:2.5em;">基金居间报酬+信托居间报酬+私募基金居间报酬等理财产品居间报酬</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">具体的报酬计算方式，依照乙方所推介客户购买产品之当时甲乙双方的书面约定。</p>
+
+            <p style="margin-left:25px;line-height:2.5em;">6.2 甲方在收到乙方所开具的居间报酬费发票后，扣除相关税费，于次月25日将上月份乙方居间报酬汇入乙方指定账户。</p>
+            　　 <p style="margin-left:25px;line-height:2.5em;">6.3 如乙方因该笔收入产生相关税费，由甲方代扣代缴。</p>
+
+            <p style="line-height:2.5em;">七、协议的生效和修改</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">7.1本协议于双方签字盖章之日起生效。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">
+            7.2本协议未尽事宜，由甲乙双方另行协商订立补充协议或订立新的协议文本予以明确。双方由此达成的补充协议将成为本协议之不可分割的一部分，与本协议具有同等效力。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">7.3对本协议的任何修改，须经双方一致同意并以书面形式作出。</p>
+
+            <p style="line-height:2.5em;">八、协议期限</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">8.1 本协议的有效期限为一年，自双方签字盖章之日起计算。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">8.2
+            因任何原因导致本协议终止，应至少提前30天以书面方式通知另一方，并应说明终止原因，本协议第二条2.2所列情形除外。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">8.3本协议终止后，甲乙双方应对协议期间发生的应尽未尽事项负责结清。</p>
+
+            <p style="line-height:2.5em;">九、争议解决</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">
+            9.1乙方履行本协议过程中（包括签订本协议前）所获得的甲方任何经营或技术信息均属甲方商业秘密。针对本协议的保密和禁止性条款，乙方如有违反，甲方有权要求赔偿损失。</p>
+            　　　<p style="margin-left:25px;line-height:2.5em;">9.2本协议的部分无效不影响其余条款的效力。甲乙双方
+            如因本协议有关事项发生诉讼时，提交甲方所在地人民法院管辖。</p>
+
+            <p style="line-height:2.5em;">十、其它</p>
+
+            <p style="margin-left:25px;line-height:2.5em;">10.1本协议正本一式二（2）份，甲乙双方各执一（1）份，具有同等法律效力。</p>
+        </div>
+    </div>
+</div>
+</form>
+<iframe id="loadRegister_25" name="loadRegister_25" width="0" height="0" frameborder="0"></iframe>
+</div>
+</div>
+</div>
+<div style=" clear:both;"></div>
+<div>
+    <p class="text-right">已有账号？<a href="http://www.myfund.com/advisor/usercenter/applogin.aspx" class="text-blue">立即登录
+    </p>
+</div>
+</div>
+
+</body>
+</html>
+
+

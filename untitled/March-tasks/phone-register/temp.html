@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        body{  margin:0 auto;
+            padding:0 0;
+            background-color:#EFEFEF;
+            -webkit-user-select:none;
+            line-height：1.5;
+            font-family:"微软雅黑";
+        }
+        body, td, input, textarea, option, select, button{
+            font-family:Arial, Helvetica, sans-serif, "microsoft yahei";
+            font-size:1.1em;
+            -webkit-text-size-adjust：none;
+            font-size-adjust:none;
+        }
+        div,p,a,b,em,input,textarea,button,select,form,label,span,td,tr,li,nav,body,ul,i {
+            padding: 0;
+            margin: 0;
+            word-break: break-all;
+            word-wrap: break-word;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        a{ text-decoration:none;color:#000;}
+        dl,ul{ list-style:none;}
+
+        .nav {
+            position: relative;
+            height: 48px;
+            font-size: 1.1em;
+            font-weight: 700px;
+            line-height: 48px;
+            color: #fff;
+            text-align: center;
+            background-color: #00567E;
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            -o-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        input {  -webkit-touch-callout: none;
+        }
+        .tg_regi_body{
+            padding:1em;
+        }
+
+        input[type=text],input[type=url],
+        input[type=tel],
+        input[type=search],
+        input[type=email],
+        input[type=password],
+        input[type=date] {
+            resize: none;
+            -webkit-appearance: none;
+        }
+        .input_text,.select{  display: block;
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #cbcbcb;
+            border-radius: 0;
+            -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            -o-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .input_text:focus {
+            border-color: #3fa4f2;
+        }
+        .pull-left {
+            float: left;
+        }
+
+        .text-right{
+            text-align:right;
+        }
+
+        a.text-blue{
+            color:#029ee9;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<script>
+    function stlRegisterCallback_{StyleID}(jsonString) {
+        var obj = eval('(' + jsonString + ')');
+        if (obj){
+
+            document.getElementById('registerSuccess_{StyleID}').style.display = 'none';
+            document.getElementById('registerFailure_{StyleID}').style.display = 'none';
+            if (obj.isSuccess == 'false'){
+                document.getElementById('registerFailure_{StyleID}').style.display = '';
+                document.getElementById('registerFailure_{StyleID}').innerHTML = obj.message;
+            }else{
+                location = "/advisor/success_reg.html";
+//                document.getElementById('registerSuccess_{StyleID}').style.display = '';
+//                document.getElementById('registerSuccess_{StyleID}').innerHTML = obj.message;
+//                document.getElementById('registerContainer_{StyleID}').style.display = 'none';
+            }
+        }
+    }
+
+
+    function register()
+    {
+        if(!document.getElementById("Check_tongyi").checked)
+        {
+            document.getElementById("error_check").style.display="block";
+        }
+        else
+        {
+            document.getElementById("error_check").style.display="none";
+        }
+
+    }
+
+    function next1()
+    {
+        document.getElementById("first").style.display="none";
+        document.getElementById("iframes").style.display="block";
+    }
+
+    function locking()
+    {
+        document.getElementById('ly').style.display="block";
+        document.getElementById('ly').style.width=document.body.clientWidth;
+        document.getElementById('ly').style.height=document.body.clientHeight;
+        document.getElementById('Layer').style.display='block';
+    }
+
+    function Lock_CheckForm(theForm)
+    {
+        document.getElementById('ly').style.display='none';
+        document.getElementById('Layer').style.display='none';
+        return false;
+    }
+
+
+    function checkUserName()
+    {
+        var obj = document.getElementById("UserName").value;
+        var reg=/.*[\u4e00-\u9fa5]+.*$/;
+        if(obj!=="")
+        {
+            if(reg.test(obj))
+            {
+                document.getElementById("usernameorror").innerHTML="用户名不能是中文";
+            }
+            else
+            {
+                document.getElementById("usernameorror").innerHTML="";
+            }
+        }
+
+    }
+
+
+    function showDetail(){
+        document.getElementById("imginf").style.display="block";
+    }
+
+    function closeimg(){
+        document.getElementById("imginf").style.display="none";
+    }
+
+    function check(str){
+        var temp=""
+        for(var i=0;i<str.length;i++)
+            if(str.charCodeAt(i)>0&&str.charCodeAt(i)<255)
+                temp+=str.charAt(i)
+        return temp
+    }
+</script>
+</body>
+</html>

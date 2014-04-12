@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../training_video/js/jquery-1.11.0.min.js"></script>
+    <script src="../training_video/js/mustache.js"></script>
+    <script>
+        var view = {
+            title: "Joe",
+            calc: function () {
+                return 2 + 4;
+            }
+        };
+
+        //        console.log(view)
+
+        var output = Mustache.render("{{title}} spends {{calc}}", view)
+
+        //        console.log(output)
+
+        var info = {
+            "name": "Chris",
+            "company": "<b>GitHub</b>"
+        };
+
+        //       console.log(Mustache.render( "{{name}}",info));
+        //       console.log(Mustache.render("{{&company}}",info));
+        //       console.log(Mustache.render("{{{company}}}",info));
+        //       console.log(Mustache.render("{{age}}",info));
+        //       console.log(Mustache.render("{{company}}",info));
+        //       console.log(Mustache.render("{{company}}",info));
+
+
+        var keys_with_object_value = {
+            "name": {
+                "first": "Michael",
+                "last": "Jackson"
+            },
+            "age": "RIP"
+        };
+
+        //        console.log(Mustache.render("{{name.first}} {{name.last}} {{age}}",keys_with_object_value))
+
+        var value_false_empty = {
+            "person": false
+        };
+
+        //        console.log(Mustache.render("show.{{#person}} Never shown!{{/person}}",value_false_empty))
+
+
+    </script>
+    <script type="text/template" id="template">
+        {{#stooges}}
+        <b>{{name}}</b>
+        {{/stooges}}
+    </script>
+    <script type="text/template" id="template-t">
+        {{#musketeers}}
+        <p>{{.}} </p>
+        {{/musketeers}}
+    </script>
+    <script type="text/template" id="template-function">
+        {{#beatles}}
+        <p>{{name}}</p>
+        {{/beatles}}
+    </script>
+
+    <script type="text/template" id="template-function-second">
+        {{#beatles}}
+        <p>{{name}}</p>
+        {{/beatles}}
+    </script>
+
+    <script type="text/template" id="model">
+        {{#bold}}
+        <p>Hi {{name}}</p>
+        {{/bold}}
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var value_Non_Empty = {
+                "stooges": [
+                    {"name": "Moe"},
+                    {"name": "Larry"},
+                    {"name": "Curly"}
+                ]
+            };
+            var musk = {
+                "musketeers": ["athos", "aramis", "porthos", "d'artagnan"]
+            };
+            var v_func = {
+                "beatles": [
+                    {"firstname": "John", "lastname": "Lennon"},
+                    {"firstname": "Paul", "lastname": "McCartney"},
+                    {"firstname": "George", "lastname": "Harrison"}
+                ],
+                "name": function () {
+                    return this.firstname + "" + this.lastname;
+                }
+            };
+
+            var tt = {
+                "name": "Tater",
+                "bold": function () {
+                    return function (text, render) {
+                        return "<b>" + render(text)+"</b>"
+                    }
+                }
+            };
+
+            var template_tt=$("#model").html();
+            var template = $("#template").html();
+            var template_t = $("#template-t").html();
+            var template_f = $("#template-function").html();
+//            var views = Mustache.render(template, value_Non_Empty);
+            var views = Mustache.to_html(template, value_Non_Empty);
+            console.log(views);
+            var views_t = Mustache.to_html(template_t, musk);
+            var views_f = Mustache.to_html(template_f, v_func);
+            var views_tt=Mustache.to_html(template_tt,tt)
+            $("#users_info").append(views).append(views_t).append(views_f).append(views_tt)
+        })
+
+    </script>
+</head>
+<body>
+<div id="users_info"></div>
+</body>
+</html>

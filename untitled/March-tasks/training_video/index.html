@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="gb2312">
+    <link href="/favicon.ico" rel="shortcut icon">
+    <title>展恒理财—投资顾问客户管理平台</title>
+
+    <script src="js/videos.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/mustache.js"></script>
+
+    <script type="text/template" id="videos_template">
+        <h2>{{tag}}&nbsp;>></h2>
+        <ul class="videos">
+            {{#videos}}
+            <li>
+                <a href="detail.html#id={{id}}"><img src="{{img}}"></a>
+
+                <h4><a href="detail.html#id={{id}}">{{title}}</a></h4>
+            </li>
+            {{/videos}}
+        </ul>
+
+        <div style="clear: both"></div>
+
+        <ul class="pages">
+
+            {{#pages}}
+            <li>
+                {{#is_current}}
+                <a class="current" href="#tag={{tag}}&page={{page}}"> 第{{page}}页 </a>
+                {{/is_current}}
+
+                {{^is_current}}
+                <a href="#tag={{tag}}&page={{page}}"> 第{{page}}页 </a>
+                {{/is_current}}
+
+            </li>
+            {{/pages}}
+            <div style="clear: both"></div>
+        </ul>
+
+    </script>
+    <script type="text/template" id="search_template">
+
+        <input id="search" placeholder="如何为客户做理财方案"><a href="search-page.html#q={{q}}" id="search-icon"></a>
+
+     </script>
+
+    <style>
+        a.current {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 12px;
+        }
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        #wrap {
+            width: 780px;
+            margin: 0 auto;
+        }
+
+        header {
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        #search {
+            width: 200px;
+            height: 28px;
+            float: left;
+            border: 1px solid #222;
+            padding:0 4px;
+        }
+
+        #search-icon {
+            width: 50px;
+            height: 30px;
+            display: block;
+            background-size: 50px 30px;
+            background: url("images/search_icon.jpg") no-repeat;
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        nav {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        nav li {
+            text-align: center;
+            display: inline-block;
+            width: 80px;
+            background-color: #00567E;
+            padding: 6px 4px;
+            border-radius: 4px;
+            margin-left: 5px;
+
+        }
+
+        nav li a.menu-list {
+            color: white;
+            text-decoration: none;
+        }
+        #content{
+            width: 780px;
+            border: 1px solid #787;
+            margin-top:20px;
+        }
+        #guanggao {
+            margin-bottom: 20px;
+        }
+
+        #all_videos {
+            width: 720px;
+            height: 700px;
+            margin: 0 auto;
+        }
+
+        #all_videos ul.videos li h4 {
+            text-align: center;
+        }
+
+        #all_videos ul.videos li h4 a {
+            text-decoration: none;
+            color: #222;
+            font-weight: normal;
+        }
+
+        #all_videos ul.videos li h4 a:hover{
+            color: #0071a4;
+        }
+
+        #all_videos ul.videos li {
+            float: left;
+            list-style: none;
+            padding: 5px;
+            margin: 10px 20px;
+        }
+
+        #all_videos ul.pages {
+            text-align: center;
+            margin-top: 15px;
+            /*position: absolute;*/
+            /*bottom: 20px;*/
+        }
+
+        #all_videos ul.pages li {
+            display: inline-block;
+            margin: 5px;
+        }
+        #all_videos ul.pages li a{
+            color: #0071a4;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <header>
+        <!--<input id="search" placeholder="如何为客户做理财方案"><a><i id="search-icon"></i></a>-->
+
+        <div class="clear"></div>
+    </header>
+    <nav>
+        <ul>
+            <li><a class="menu-list" href="#tag=公募基金&page=1">公募基金</a></li>
+            <li><a class="menu-list" href="#tag=信托&page=1">信托</a></li>
+            <li><a class="menu-list" href="#tag=营销前沿&page=1">营销前沿</a></li>
+            <li><a class="menu-list" href="#tag=法律法规&page=1">法律法规</a></li>
+            <li><a class="menu-list" href="#tag=资料下载&page=1">资料下载</a></li>
+            <li><a class="menu-list" href="#tag=考试&page=1">考试</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+    <div id="guanggao">
+        <img src="images/guanggao.jpg" width="780px" height="100px">
+    </div>
+
+    <div id="all_videos">
+
+    </div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+
+        var videos_template = $('#videos_template').html();
+
+        function filter_videos(tag, page) {
+            var data = get_videos_by_tag(tag, page);
+            console.log(data);
+            var videos_html = Mustache.to_html(videos_template, data);
+            $('#all_videos').empty().append(videos_html);
+
+        }
+
+        hash_router.route({
+            '': function () {
+                filter_videos('全部视频', 1);
+            },
+
+            'tag=:tag&page=:page': function (tag, page) {
+                filter_videos(tag, parseInt(page));
+            }
+        });
+
+
+//        var ini_tag = "公募基金";
+//        var ini_videos = get_videos_by_tag(ini_tag);
+//        var ini_videos_html = Mustache.to_html(videos_template, {tag: ini_tag, videos: ini_videos});
+//
+//        $('#all_videos').empty().append(ini_videos_html);
+//
+//        var PER_PAGE = 9;
+
+//        $(".menu-list").click(function () {
+//            var tag = $(this).text();
+//
+////            console.log(tag);
+//            var result = get_videos_by_tag(tag);
+//
+//            console.log(result, '---');
+//
+//            var videos_html = Mustache.to_html(videos_template, result);
+//
+//            $('#all_videos').empty().append(videos_html);
+//
+//        });
+
+//        $("#pages").empty().append(pages_html);
+
+
+        var search_template=$("#search_template").html();
+
+
+    });
+</script>
+
+</body>
+<!--<script src="http://lab.julying.com/weather/v3/jquery.weather.build.min.js?parentbox=body&moveArea=all&moveArea=limit&zIndex=15&move=1&move=0&drag=1&drag=0&autoDrop=0&autoDrop=1&styleSize=big&styleSize=small&style=default&style=medialoot&style=meteocons&style=blue&style=cartoon-1&style=cartoon-2&style=cartoon-3&style=_random&time=1396077532&area=client&area=assign&city=%E5%8C%97%E4%BA%AC"></script>-->
+</html>

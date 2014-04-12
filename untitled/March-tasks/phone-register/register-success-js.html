@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script>
+        function stlRegisterCallback_{StyleID}(jsonString){
+            var obj = eval('(' + jsonString + ')');
+            if (obj){
+                document.getElementById('registerSuccess_{StyleID}').style.display = 'none';
+                document.getElementById('registerFailure_{StyleID}').style.display = 'none';
+                if (obj.isSuccess == 'false'){
+                    document.getElementById('registerFailure_{StyleID}').style.display = '';
+                    document.getElementById('registerFailure_{StyleID}').innerHTML = obj.message;
+                }else{
+                    document.getElementById('registerSuccess_{StyleID}').style.display = '';
+                    document.getElementById('registerSuccess_{StyleID}').innerHTML = obj.message;
+                    document.getElementById('registerContainer_{StyleID}').style.display = 'none';
+                }
+            }
+        }
+
+
+        function register()
+        {
+            if(!document.getElementById("Check_tongyi").checked)
+            {
+                document.getElementById("error_check").style.display="block";
+            }
+            else
+            {
+                document.getElementById("error_check").style.display="none";
+            }
+
+        }
+
+        function next1()
+        {
+            document.getElementById("first").style.display="none";
+            document.getElementById("iframes").style.display="block";
+        }
+
+        function locking()
+        {
+            document.getElementById('ly').style.display="block";
+            document.getElementById('ly').style.width=document.body.clientWidth;
+            document.getElementById('ly').style.height=document.body.clientHeight;
+            document.getElementById('Layer').style.display='block';
+        }
+
+        function Lock_CheckForm(theForm)
+        {
+            document.getElementById('ly').style.display='none';
+            document.getElementById('Layer').style.display='none';
+            return false;
+        }
+
+
+        function checkUserName()
+        {
+            var obj = document.getElementById("UserName").value;
+            var reg=/.*[\u4e00-\u9fa5]+.*$/;
+            if(obj!=="")
+            {
+                if(reg.test(obj))
+                {
+                    document.getElementById("usernameorror").innerHTML="用户名不能是中文";
+                }
+                else
+                {
+                    document.getElementById("usernameorror").innerHTML="";
+                }
+            }
+
+        }
+
+
+        function showDetail(){
+            document.getElementById("imginf").style.display="block";
+        }
+
+        function closeimg(){
+            document.getElementById("imginf").style.display="none";
+        }
+
+        function check(str){
+            var temp=""
+            for(var i=0;i<str.length;i++)
+                if(str.charCodeAt(i)>0&&str.charCodeAt(i)<255)
+                    temp+=str.charAt(i)
+            return temp
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

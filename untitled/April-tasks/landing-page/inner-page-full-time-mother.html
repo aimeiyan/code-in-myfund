@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>展恒独立投资顾问平台</title>
+
+<meta name="description" content="展恒独立投资顾问平台。展恒理财。">
+
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    font: 12px Arial, Helvetica, sans-serif, "microsoft yahei";
+}
+
+body {
+    width: 1000px;
+    background: #ffffff;
+    margin: 0 auto;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+img {
+    border: 0;
+}
+
+#header {
+    width: 1000px;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    background: url("imgs/header_backgroun.png") repeat-x;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#header-logo {
+    float: left;
+    height: 80px;
+    margin: 15px 0 0 5px;
+
+}
+
+#header ul {
+    float: right;
+    margin: 20px;
+}
+
+#header ul li {
+    list-style: none;
+    /*display: inline-block;*/
+    float: left;
+}
+
+#header ul li a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: #00699f;
+    font-weight: bold;
+}
+
+#header ul li a:hover {
+    background: #00699f;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+#banner {
+    margin-top: 5px;
+    width: 1000px;
+    height: 141px;
+    background: url("imgs/inner_banner.jpg") no-repeat;
+}
+
+#signup-tip p {
+    padding: 4px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#signup-tip {
+    position: absolute;
+    right: 105px;
+    top: 18px;
+    width: 177px;
+    height: 24px;
+    background: url('imgs/header-tip.png');
+}
+
+#people {
+    margin: 10px 0;
+    text-align: center;
+}
+
+#people li {
+    /*display: inline-block;*/
+    float: left;
+    margin-right: 10px;
+    height: 120px;
+    width: 242px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#people li:after {
+
+}
+
+#people li.mother {
+    margin-right: 0;
+}
+
+#cartoons {
+    background: #efefef;
+    padding: 10px 20px;
+    position: relative;
+}
+
+#cartoons-wrapper {
+    position: relative;
+}
+
+#cartoons .finance>div:first-child, #cartoons .baoxian>div:first-child, #cartoons .zhiyeguwen>div:first-child, #cartoons .mother>div:first-child {
+    margin-bottom: 10px;
+}
+
+#cartoons .manhua img {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+}
+
+#cartoons-wrapper .center-pic {
+    position: absolute;
+    top: 264px;
+    left: 422px;
+}
+
+#cartoons-wrapper .center-pic img {
+    width: 150px;
+}
+
+#list-button {
+    margin: 30px 0;
+    text-align: center;
+}
+
+#list-button li {
+    text-align: center;
+    /*display: inline-block;*/
+    width: 24%;
+    margin: 10px 0;
+    float: left;
+}
+
+#list-button li img {
+    opacity: 0.6;
+}
+
+#list-button li img:hover {
+    opacity: 1;
+}
+
+#footer {
+    height: 88px;
+    background: url("imgs/footer_background.gif") repeat-x;
+}
+
+#footer-top {
+    padding: 20px 10px;
+}
+
+#footer-top li {
+    float: left;
+    height: 100px;
+    list-style: none;
+
+}
+
+#footer-top .zhanheng_logo, #footer-top .erwiema_pic {
+    margin-right: 70px;
+}
+
+#footer-top .zhanheng_logo>div {
+    float: left;
+    margin-right: 30px;
+
+}
+
+#footer-top .erwiema_pic>div {
+    float: left;
+    margin-right: 30px;
+}
+
+#footer-top li p {
+    line-height: 2em;
+}
+
+#footer-top li a.footer-logo {
+    color: #00699f;
+    cursor: pointer;
+}
+
+#footer-top li a.footer-logo:hover {
+    text-decoration: underline;
+}
+
+#foot-bottom {
+    width: 740px;
+    margin: 0 auto 20px;
+    /*margin: -10px 0 20px 0;*/
+    /*text-align: center;*/
+}
+
+#foot-bottom li {
+    /*display: inline-block;*/
+    float: left;
+    margin: 0 10px;
+}
+
+.nonselected {
+    background: #efefef;
+}
+
+.selected {
+    background: #d1fff8;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+    /**
+     * For IE 6/7 only
+     * Include this rule to trigger hasLayout and contain floats.
+     */
+.cf {
+    *zoom: 1;
+}
+
+</style>
+</head>
+
+<body>
+<div id="header">
+    <a id="header-logo" href="Index.html" target="_blank"><img
+            src="imgs/header_logo.png" alt="展恒"></a>
+
+    <div id="signup-tip">
+        <p>注册，即得10元话费！</p>
+    </div>
+    <ul>
+        <li><a href="http://www.myfund.com/advisor/tg_register.html" target="_blank">注册</a></li>
+        <li><a href="http://www.myfund.com/advisor/Index.html" target="_blank">登录</a></li>
+    </ul>
+</div>
+<div id="banner">
+
+</div>
+
+<ul id="people" class="cf">
+    <li class="finance nonselected" id="finance">
+        <a class="professional" href="#">
+            <img src="imgs/banker_samll.png">
+        </a>
+    </li>
+
+    <li class="baoxian nonselected" id="baoxian">
+        <a class="professional" href="#">
+            <img src="imgs/baoxian_small.png">
+        </a>
+    </li>
+
+    <li class="zhiyeguwen nonselected" id="zhiye">
+        <a class="professional" href="#">
+            <img src="imgs/zhiye_small.png">
+        </a>
+    </li>
+
+    <li class="mother nonselected" id="mama">
+        <a class="professional" href="#">
+            <img src="imgs/mother_small.png">
+        </a>
+    </li>
+</ul>
+
+<div id="cartoons-wrapper">
+    <div id="cartoons">
+        <div class="finance">
+            <div class="manhua"><img src="imgs/finance_cartoons.jpg"></div>
+            <div><img src="imgs/finance_tip.jpg"></div>
+            <!--<div class="center-pic"><img src="images/center_rotate_pic.png"></div>-->
+        </div>
+
+        <div class="baoxian" style="display: none">
+            <div class="manhua"><img src="imgs/baoxian_cartoons.jpg"></div>
+            <div><img src="imgs/baoxian_tip.jpg"></div>
+            <!--<div class="center-pic"><img src="images/center_rotate_pic.png"></div>-->
+
+        </div>
+        <div class="zhiyeguwen" style="display: none">
+            <div class="manhua"><img src="imgs/fangchanye_cartoons.jpg"></div>
+            <div><img src="imgs/zhiyeguwen_tip.jpg"></div>
+            <!--<div class="center-pic"><img src="images/center_rotate_pic.png"></div>-->
+        </div>
+        <div class="mother" style="display: none">
+            <div class="manhua"><img src="imgs/mother_catoons.jpg"></div>
+            <div><img src="imgs/mother_tip.png"></div>
+            <!--<div class="center-pic"><img src="images/center_rotate_pic.png"></div>-->
+        </div>
+    </div>
+
+
+    <div class="center-pic"><a href="http://www.myfund.com/advisor/tg_register.html" target="_blank"><img
+            src="imgs/center_rotate_pic.png"></a></div>
+
+
+</div>
+
+<ul id="list-button" class="cf">
+    <li><a href="http://www.myfund.com/advisor/touzitixi.html" target="_blank"><img
+            src="imgs/button-12.png"></a></li>
+    <li><a href="http://www.myfund.com/advisor/cpkszz.html" target="_blank"><img
+            src="imgs/button-22.png"></a></li>
+    <li><a href="http://www.myfund.com/advisor/pxktszz.html" target="_blank"><img
+            src="imgs/button-32.png"></a></li>
+    <li><a href="http://www.myfund.com/advisor/Tg_zixun.html" target="_blank"><img
+            src="imgs/button-42.png"></a></li>
+</ul>
+<div style="clear: both"></div>
+<div id="footer">
+    <ul id="footer-top" class="cf">
+        <li class="zhanheng_logo">
+            <div><img src="imgs/footer_logo.gif"></div>
+            <div><p><a class="footer-logo" href="http://www.myfp.cn/" target="_blank">登陆展恒理财官网</a></p>
+
+                <p>联系电话：400-888-6661</p>
+
+                <p>联系邮箱：advisor@myfund.com</p></div>
+        </li>
+        <li class="erwiema_pic">
+            <div><img src="imgs/erweima.gif"></div>
+            <div><p>微信二维码</p>
+
+                <p>微信账号：MYFP-666</p></div>
+        </li>
+        <li class="old_year_pic">
+            <div><img src="imgs/old_year_logo.gif"></div>
+        </li>
+    </ul>
+
+    <ul id="foot-bottom" class="cf">
+        <li><span>京ICP备06032587号</span></li>
+        <li><span>全国理财咨询热线：010-62020088</span></li>
+        <li><span>Copyright @2013 展恒理财 Corporation, All Rights Reserved版权所有</span></li>
+    </ul>
+</div>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jQueryRotate.js"></script>
+<script>
+    $(function () {
+//header-tip
+
+        var ANIMATE_TIME = 600;
+
+        function animate_to_top() {
+            $('#signup-tip').animate({
+                top: 8
+            }, ANIMATE_TIME, animate_to_bottom);
+        }
+
+        function animate_to_bottom() {
+            $('#signup-tip').animate({
+                top: 18
+            }, ANIMATE_TIME, animate_to_top);
+        }
+
+        animate_to_top();
+
+// button-list-pic-exchange
+//        $('#list-button img').hover(function () {
+//            var $img = $(this), src = $img.attr('src');
+//            $img.attr('src', src.replace(/\d+/, function (i) {
+//                return parseInt(i) + 1;
+//            }));
+//
+//        }, function () {
+//            var $img = $(this), src = $img.attr('src');
+//            $img.attr('src', src.replace(/\d+/, function (i) {
+//                return parseInt(i) - 1;
+//            }));
+//        });
+
+// four-people-background-exchange
+
+//        $('#people img').hover(function () {
+//            var $img = $(this), src = $img.attr('src');
+//            $img.attr('src', src.replace(/\d+/, function (i) {
+//                return parseInt(i) + 1;
+//            }));
+//        }, function () {
+//            var $img = $(this), src = $img.attr('src');
+//            $img.attr('src', src.replace(/\d+/, function (i) {
+//                return parseInt(i) - 1;
+//            }));
+//        });
+
+//four-cartoons-exchange
+        var index = 0;
+
+        function remote_center_pic() {
+            $('#cartoons-wrapper .center-pic img').rotate({
+                angle: -ANGLE,
+                duration: A_TIME,
+                animateTo: 0
+            })
+        }
+
+        $("#people > li").click(function () {
+            var index = $("#people>li").index(this);
+            showImg(index);
+            $("#people > li").removeClass('selected');
+
+            $(this).addClass('selected');
+            remote_center_pic();
+        }).eq(3).click();
+
+
+        $(window.location.hash).click();
+
+        function showImg(index) {
+            $("#cartoons>div").eq(index).stop(true, true).fadeIn().siblings().hide();
+        }
+
+        var ANGLE = -360, A_TIME = 15000;
+
+        remote_center_pic();
+
+        setTimeout(function () {
+            $(window).scrollTop(0);
+        }, 10);
+    });
+
+
+</script>
+</body>
+</html>

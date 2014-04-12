@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="gb2312">
+    <title>展恒理财—投资顾问客户管理平台</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, button, input, select, textarea {
+            width: 780px;
+            margin: 0 auto;
+            font: 12px/20px arial, helvetica, verdana, tahoma, sans-serif;
+
+        }
+
+        #ico_logo {
+            display: block;
+            height: 50px;
+            width: 105px;
+            background: url("images/logo-icon.png") no-repeat;
+            text-indent: -999px;
+
+        }
+
+        #search-text {
+            width: 300px;
+            height: 26px;
+            padding: 0 3px;
+            margin: 15px auto;
+
+        }
+
+        #search-ico {
+            background: url("images/search_icon.jpg") no-repeat;
+            display: block;
+            width: 50px;
+            height: 30px;
+            margin: 15px 0;
+            cursor: pointer;
+        }
+
+        header>* {
+            float: left;
+            margin-right: 20px;
+        }
+
+        header {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            display: block;
+            line-height: 0;
+            content: "";
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        #wrapper {
+            width: 780px;
+            border: 1px solid #787;
+        }
+
+        #top img, #bottom img {
+            display: block;
+            width: 780px;
+            height: 100px;
+        }
+
+        #content {
+            height: 700px;
+            width: 720px;
+            margin: 10px auto;
+        }
+
+        .search-result li {
+            float: left;
+            list-style: none;
+            padding: 5px;
+            margin: 10px 20px;
+        }
+
+        h3 {
+            text-align: center;
+            color: #13567f;
+            margin-top: 20px;
+        }
+    </style>
+    <script type="text/template" id="search_video_template">
+        <h2>搜索结果&nbsp;>></h2>
+        <ul class="search-result">
+            {{#videos}}
+            <li>
+                <a href="detail.html#id={{id}}"><img src="{{img}}"></a>
+                <h4><a href="detail.html#id={{id}}">{{title}}</a></h4>
+            </li>
+            {{/videos}}
+            <div style="clear:both"></div>
+        </ul>
+    </script>
+</head>
+<body>
+<header class="clearfix">
+    <a id="ico_logo" href="">展恒</a>
+    <input id="search-text" type="text" placeholder="如何为客户做理财方案">
+    <a id="search-ico"></a>
+
+    <div style="clear: both"></div>
+</header>
+<div id="wrapper">
+    <!--顶部广告-->
+    <figure id="top">
+        <a href=""><img src="images/guanggao.jpg"></a>
+    </figure>
+    <!--搜素结果 -->
+    <div id="content">
+
+    </div>
+    <!--底部广告-->
+    <figure id="bottom">
+        <a href=""><img src="images/guanggao.jpg"></a>
+    </figure>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/mustache.js"></script>
+<script src="js/videos.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var search_videos = $("#search_video_template").html();
+
+
+
+        $("#search-ico").click(function () {
+            var q = $("#search-text").val();
+
+            var videos = get_search_videos(q);
+            var search_html;
+            if (videos != '') {
+                search_html = Mustache.to_html(search_videos, {videos: videos});
+                $("#content").empty().append(search_html);
+            }
+            else {
+                search_html = "<h2>搜索结果&nbsp;>></h2><h3>没有发现相关视频</h3>";
+                $("#content").empty().html(search_html);
+            }
+
+        })
+    })
+
+</script>
+</body>
+</html>
